@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#082f49">
+<title>DAHAB — Coast. Marine. Desert Gold.</title>
+<style>
+:root{
+  --navy:#06283d; --deep:#031923; --sea:#0a7895; --cyan:#48d8df;
+  --sand:#e7c48d; --gold:#d9a441; --cream:#fff8e9; --ink:#14232d;
+  --muted:#6f7f86; --line:rgba(20,35,45,.12); --shadow:0 24px 70px rgba(0,31,45,.18);
+  --radius:28px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:#fbfaf6}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit}
+.container{width:min(1180px,92vw);margin:auto}
+.nav{
+ position:fixed;z-index:20;top:16px;left:50%;transform:translateX(-50%);
+ width:min(1160px,92vw);padding:10px 14px;border:1px solid rgba(255,255,255,.18);
+ background:rgba(3,25,35,.66);backdrop-filter:blur(18px);border-radius:999px;
+ display:flex;align-items:center;justify-content:space-between;color:#fff;
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.13em;font-size:13px}
+.brand-mark{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#35d8df,#0b6b89);box-shadow:0 0 0 1px rgba(255,255,255,.25)}
+.navlinks{display:flex;gap:5px}
+.navlinks a{padding:10px 14px;border-radius:999px;font-size:13px;color:rgba(255,255,255,.84)}
+.navlinks a:hover{background:rgba(255,255,255,.12);color:#fff}
+.hero{min-height:100vh;position:relative;overflow:hidden;color:#fff;background:
+ radial-gradient(circle at 75% 20%,rgba(73,214,221,.25),transparent 25%),
+ linear-gradient(180deg,rgba(3,25,35,.05),rgba(3,25,35,.85)),
+ url("assets/attractions-bluehole-threepools-lagoon.png") center/cover;
+ display:flex;align-items:flex-end;
+}
+.hero:after{content:"";position:absolute;inset:auto 0 0;height:45%;background:linear-gradient(transparent,var(--deep));pointer-events:none}
+.hero-content{position:relative;z-index:2;padding:150px 0 90px;max-width:900px}
+.kicker{display:inline-flex;align-items:center;gap:9px;text-transform:uppercase;letter-spacing:.2em;font-size:12px;font-weight:800;color:#bdfcff;margin-bottom:22px}
+.kicker i{width:34px;height:1px;background:#bdfcff}
+h1{font-size:clamp(60px,11vw,150px);line-height:.82;margin:0;letter-spacing:-.065em;font-weight:900}
+.hero-sub{font-size:clamp(20px,2.2vw,29px);line-height:1.3;max-width:680px;color:rgba(255,255,255,.9);margin:28px 0}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{border:0;border-radius:999px;padding:14px 20px;font-weight:800;cursor:pointer;transition:.25s}
+.btn-primary{background:var(--sand);color:#2b251a}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(231,196,141,.25)}
+.btn-ghost{background:rgba(255,255,255,.11);color:#fff;border:1px solid rgba(255,255,255,.24)}
+.btn-ghost:hover{background:rgba(255,255,255,.18)}
+.scroll-cue{margin-top:80px;display:flex;gap:12px;align-items:center;font-size:12px;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:.16em}
+.scroll-cue span{display:block;width:48px;height:1px;background:rgba(255,255,255,.45)}
+.section{padding:110px 0}
+.section.dark{background:var(--deep);color:#fff}
+.section.sand{background:#f2e6cf}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:45px}
+.eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:11px;font-weight:900;color:var(--sea)}
+.dark .eyebrow{color:var(--cyan)}
+h2{font-size:clamp(40px,6vw,74px);letter-spacing:-.045em;line-height:.95;margin:8px 0 0}
+.lead{max-width:600px;color:var(--muted);line-height:1.7}
+.dark .lead{color:rgba(255,255,255,.67)}
+.editorial{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:stretch}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.dark .card{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);box-shadow:none}
+.card img{width:100%;height:100%;object-fit:cover}
+.story{padding:34px}
+.story p{line-height:1.8;color:#66767d}
+.dark .story p{color:rgba(255,255,255,.7)}
+.fact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.fact{padding:20px;border-radius:20px;background:#f8f2e7;border:1px solid #eadfc9}
+.fact strong{display:block;font-size:25px;color:var(--navy)}
+.fact span{font-size:12px;color:#7c878b}
+.timeline{position:relative;display:grid;gap:16px}
+.timeline:before{content:"";position:absolute;left:30px;top:10px;bottom:10px;width:1px;background:rgba(72,216,223,.28)}
+.timeline-item{position:relative;padding-left:76px}
+.timeline-dot{position:absolute;left:20px;top:8px;width:21px;height:21px;border-radius:50%;background:var(--deep);border:5px solid var(--cyan);box-shadow:0 0 0 5px rgba(72,216,223,.08)}
+.timeline-card{padding:26px 28px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.1);border-radius:22px}
+.timeline-year{color:#bdfcff;font-weight:900;font-size:13px;letter-spacing:.08em}
+.timeline-card h3{margin:7px 0 8px;font-size:22px}
+.timeline-card p{margin:0;color:rgba(255,255,255,.67);line-height:1.65}
+.attractions{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.attraction{position:relative;min-height:600px;border-radius:30px;overflow:hidden;isolation:isolate;background:#123}
+.attraction:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,25,35,.02) 25%,rgba(3,25,35,.82));z-index:-1}
+.attraction img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .6s}
+.attraction:hover img{transform:scale(1.045)}
+.attraction-content{position:absolute;inset:auto 0 0;padding:28px;color:#fff}
+.num{font-size:12px;letter-spacing:.2em;color:#a9f9fc;font-weight:900}
+.attraction h3{font-size:34px;letter-spacing:-.03em;margin:7px 0}
+.attraction p{color:rgba(255,255,255,.78);line-height:1.6;margin:0}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:18px}
+.tag{font-size:11px;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18)}
+.image-feature{display:grid;grid-template-columns:.95fr 1.05fr;min-height:540px}
+.image-feature .copy{padding:54px;background:#fff8e9}
+.image-feature .image{min-height:400px}
+.image-feature .image img{width:100%;height:100%;object-fit:cover}
+.quote{font-size:clamp(27px,4vw,48px);line-height:1.12;letter-spacing:-.035em;font-weight:800;margin:25px 0}
+.heritage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.heritage-card{border-radius:26px;overflow:hidden;background:#fff;border:1px solid var(--line)}
+.heritage-card .photo{height:280px;overflow:hidden}
+.heritage-card img{width:100%;height:100%;object-fit:cover}
+.heritage-card .body{padding:28px}
+.heritage-card h3{margin:0 0 12px;font-size:27px}
+.heritage-card p{line-height:1.7;color:#68777d}
+.footer{padding:80px 0 35px;background:#020f16;color:#fff}
+.footer-grid{display:grid;grid-template-columns:1.4fr .6fr .6fr;gap:40px}
+.footer h3{font-size:34px;margin:0 0 14px}
+.footer p{color:rgba(255,255,255,.58);line-height:1.7}
+.footer a{color:rgba(255,255,255,.7);display:block;margin:9px 0;font-size:14px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:50px;padding-top:20px;color:rgba(255,255,255,.4);font-size:12px;display:flex;justify-content:space-between}
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){
+ .navlinks{display:none}
+ .editorial,.image-feature{grid-template-columns:1fr}
+ .attractions,.heritage-grid{grid-template-columns:1fr}
+ .attraction{min-height:520px}
+ .footer-grid{grid-template-columns:1fr}
+ .fact-grid{grid-template-columns:1fr}
+ .section{padding:80px 0}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{transition:none}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="brand" href="#top"><span class="brand-mark">D</span><span>DAHAB / SINAI</span></a>
+  <div class="navlinks">
+    <a href="#story">Story</a><a href="#history">History</a><a href="#coast">Coast</a><a href="#heritage">Heritage</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="container hero-content reveal">
+    <div class="kicker"><i></i> Red Sea · Sinai · Egypt</div>
+    <h1>DAHAB</h1>
+    <p class="hero-sub">Coast. Marine. Desert gold. A living landscape where clear Red Sea water meets coral, mountains, Bedouin culture and centuries of movement.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#coast">Explore the coast</a>
+      <a class="btn btn-ghost" href="#history">Trace the history</a>
+    </div>
+    <div class="scroll-cue"><span></span> Scroll to discover</div>
+  </div>
+</header>
+
+<section class="section" id="story">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="eyebrow">01 / The place</div><h2>Where blue meets gold.</h2></div>
+      <p class="lead">Dahab’s identity is built around a rare visual contrast: turquoise-to-deep-blue Red Sea water, coral reefs, rugged desert mountains and a culture shaped by Sinai’s Bedouin traditions.</p>
+    </div>
+    <div class="editorial reveal">
+      <div class="card" style="min-height:560px"><img src="assets/attractions-bluehole-threepools-lagoon.png" alt="Dahab coastline, marine sites and desert mountains"></div>
+      <div class="card story">
+        <div class="eyebrow">A modern destination</div>
+        <p class="quote">“Ancient roots, living culture, and a coastline made for discovery.”</p>
+        <p>The supplied timeline describes Dahab as a major South Sinai tourism town today, famous for diving, windsurfing, freediving, beaches, desert landscapes and Bedouin culture.</p>
+        <div class="fact-grid">
+          <div class="fact"><strong>3</strong><span>signature natural attractions</span></div>
+          <div class="fact"><strong>1990s</strong><span>rapid tourism development</span></div>
+          <div class="fact"><strong>Red Sea</strong><span>coast + coral + water sports</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark" id="history">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="eyebrow">02 / Time</div><h2>A coastline with layers.</h2></div>
+      <p class="lead">The supplied source traces Dahab from ancient coastal use through Nabataean, Roman, Byzantine, Islamic, Ottoman and modern periods.</p>
+    </div>
+
+    <div class="editorial reveal" style="margin-bottom:50px">
+      <div class="card"><img src="assets/history-ancient-nabataean.png" alt="Ancient and Nabataean Dahab visual"></div>
+      <div class="story">
+        <div class="eyebrow">Ancient → Nabataean</div>
+        <p>Dahab’s coast was used as an anchorage and settlement area, with archaeological remains dating back to ancient times. From the 1st century BCE to 106 CE, the region was influenced by the Nabataean Kingdom, an important trading power.</p>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <article class="timeline-item reveal"><span class="timeline-dot"></span><div class="timeline-card"><div class="timeline-year">106–330 CE</div><h3>Roman rule</h3><p>Roman rule followed Rome’s annexation of the Nabataean Kingdom.</p></div></article>
+      <article class="timeline-item reveal"><span class="timeline-dot"></span><div class="timeline-card"><div class="timeline-year">330–641 CE</div><h3>Byzantine rule</h3><p>Archaeological remains include a fortified coastal complex and harbor.</p></div></article>
+      <article class="timeline-item reveal"><span class="timeline-dot"></span><div class="timeline-card"><div class="timeline-year">641 CE onward</div><h3>Islamic rule</h3><p>Islamic rule began with the Arab conquest of Egypt; later Fatimid, Ayyubid and Mamluk periods kept Sinai important for trade, pilgrimage and military routes.</p></div></article>
+      <article class="timeline-item reveal"><span class="timeline-dot"></span><div class="timeline-card"><div class="timeline-year">1517–1805</div><h3>Ottoman rule</h3><p>Dahab remained a small coastal settlement.</p></div></article>
+      <article class="timeline-item reveal"><span class="timeline-dot"></span><div class="timeline-card"><div class="timeline-year">1882–1922</div><h3>British occupation / protectorate</h3><p>The source places Dahab within the period of British occupation/protectorate of Egypt.</p></div></article>
+    </div>
+
+    <div class="image-feature reveal" style="margin-top:45px;border-radius:28px;overflow:hidden">
+      <div class="copy">
+        <div class="eyebrow">A turning point</div>
+        <p class="quote">1982 → 1990s</p>
+        <p style="line-height:1.8;color:#68777d">Sinai returned to Egypt in 1982, a major turning point in Dahab’s modern development. The supplied source says Dahab developed rapidly as an international diving and tourism destination during the 1990s.</p>
+        <p style="line-height:1.8;color:#68777d">The source also notes that tourism was temporarily disrupted by terrorist attacks in Sinai between 2004 and 2006, including the 2006 Dahab bombings.</p>
+      </div>
+      <div class="image"><img src="assets/history-ottoman-british.png" alt="Ottoman and British period visual for Dahab"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="coast">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="eyebrow">03 / Marine</div><h2>The blue side of Dahab.</h2></div>
+      <p class="lead">Three standout natural attractions combine Red Sea water, coral reefs, desert mountains and water sports.</p>
+    </div>
+    <div class="attractions">
+      <article class="attraction reveal">
+        <img src="assets/attractions-bluehole-threepools-lagoon.png" alt="Blue Hole">
+        <div class="attraction-content"><div class="num">01 / BLUE HOLE</div><h3>Blue Hole</h3><p>A spectacular natural underwater sinkhole famous for deep blue water, coral reefs and rich marine life.</p><div class="tags"><span class="tag">Diving</span><span class="tag">Freediving</span><span class="tag">Coral</span></div></div>
+      </article>
+      <article class="attraction reveal">
+        <img src="assets/attractions-bluehole-threepools-lagoon.png" alt="Three Pools">
+        <div class="attraction-content"><div class="num">02 / THREE POOLS</div><h3>Three Pools</h3><p>A series of natural pools surrounded by coral reefs and clear turquoise water, popular for snorkeling, swimming and diving.</p><div class="tags"><span class="tag">Snorkeling</span><span class="tag">Swimming</span><span class="tag">Diving</span></div></div>
+      </article>
+      <article class="attraction reveal">
+        <img src="assets/attractions-bluehole-threepools-lagoon.png" alt="The Lagoon">
+        <div class="attraction-content"><div class="num">03 / THE LAGOON</div><h3>The Lagoon</h3><p>A wide, shallow bay surrounded by mountains and desert, especially popular for windsurfing, kitesurfing, swimming and relaxing.</p><div class="tags"><span class="tag">Windsurfing</span><span class="tag">Kitesurfing</span><span class="tag">Beach</span></div></div>
+      </article>
+    </div>
+    <p class="lead reveal" style="margin:25px 0 0">All three descriptions are based on the supplied Dahab source. The visual is intentionally reused as a cohesive triptych hero for the marine chapter.</p>
+  </div>
+</section>
+
+<section class="section sand">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="eyebrow">04 / Culture</div><h2>Desert gold, made by people.</h2></div>
+      <p class="lead">Food, craft and music form a living cultural layer connected to Bedouin traditions of Sinai.</p>
+    </div>
+    <div class="card reveal"><img src="assets/heritage-food-crafts-music.png" alt="Dahab regional food, traditional crafts and music"></div>
+    <div class="heritage-grid" id="heritage" style="margin-top:20px">
+      <article class="heritage-card reveal"><div class="photo"><img src="assets/heritage-food-crafts-music.png" alt="Regional dishes"></div><div class="body"><div class="eyebrow">Food</div><h3>Regional dishes</h3><p>Arisha cheese, Bedouin bread, rice and meat dishes, dates, herbal teas and Arabic coffee. Food is closely connected with hospitality, family gatherings and celebrations.</p></div></article>
+      <article class="heritage-card reveal"><div class="photo"><img src="assets/heritage-food-crafts-music.png" alt="Traditional crafts"></div><div class="body"><div class="eyebrow">Craft</div><h3>Traditional crafts</h3><p>Bedouin embroidery, weaving, beadwork, leatherwork and handmade jewelry use colorful patterns and geometric designs.</p></div></article>
+      <article class="heritage-card reveal"><div class="photo"><img src="assets/heritage-food-crafts-music.png" alt="Traditional music"></div><div class="body"><div class="eyebrow">Sound</div><h3>Traditional music</h3><p>Bedouin poetry, singing, drums and the rababa can accompany weddings, celebrations, gatherings and storytelling.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="eyebrow">05 / Perspective</div><h2>One place, three worlds.</h2></div>
+      <p class="lead">A UX-led visual system keeps the experience simple: ocean blue for marine discovery, warm sand for culture, and deep night tones for history.</p>
+    </div>
+    <div class="editorial reveal">
+      <div class="card"><img src="assets/history-islamic-periods.png" alt="Islamic and medieval periods in Dahab"></div>
+      <div class="story">
+        <div class="eyebrow">The narrative</div>
+        <p class="quote">Past beneath your feet. Reef below the surface. Desert on the horizon.</p>
+        <p>The site intentionally moves from place → time → marine → culture, allowing the strongest supplied visuals to carry each chapter instead of overwhelming visitors with text.</p>
+        <a class="btn btn-primary" href="#top">Back to top ↑</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><h3>DAHAB</h3><p>A visual destination story built from the supplied Dahab historical, attraction and intangible-heritage materials and the six supplied images.</p></div>
+      <div><div class="eyebrow">Explore</div><a href="#story">The place</a><a href="#history">History</a><a href="#coast">Marine</a><a href="#heritage">Heritage</a></div>
+      <div><div class="eyebrow">Themes</div><a href="#coast">Coast</a><a href="#coast">Coral & water</a><a href="#heritage">Bedouin culture</a><a href="#history">Desert history</a></div>
+    </div>
+    <div class="footer-bottom"><span>© Dahab visual concept</span><span>Coast · Marine · Desert Gold</span></div>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
